@@ -10,16 +10,15 @@
 <body>
   <nav>
     <a href="/">Home</a>
-
     {{#if currentUser}}
       <a href="/today">Today</a>
       <a href="/dashboard">My Page</a>
-      <a href="/chillout">Take a Breather</a>
+      <a href="/chillout">Inspiration</a>
       <a href="/logout">Logout</a>
     {{else}}
-      <a href="/login">Login</a>
+      {{!-- <a href="/login">Login</a> --}}
       <a href="/signup">Sign Up</a>
-      <a href="/chillout">Take a Breather</a>
+      <a href="/chillout">Inspiration</a>
     {{/if}}
   </nav>
 

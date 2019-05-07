@@ -1,13 +1,21 @@
-<h1> today's entry</h1>
-<form action="/today/new" method="post">
-  <label for="">Date:</label>
+<h1> {{date}}</h1>
+<form action="/allPosts" method="post">
+  {{!-- <label for="">Date:</label>
   <input type="Date" name="date">
+  <br> --}}
+  <label for="">Write it Out</label>
   <br>
-  <label for="">Question1</label>
-  <input type="text" name="Question">
+  <input type="text" name="Question" style="width:300px; height:100px;" >
   <br>
-  <label for="">Today's Mood:</label>
+  <label for="">Song of the Day:</label>
+  <br>
+  <input type="text" name="SOTD">
+  <br>
+  <label for="">On a scale of 1 being :( and 5 being :), how do you feel?</label>
+  <br>
   <input type="number" name="mood">
+  <br>
+  <input type="file" name="pic">
   <br>
   <button type="submit">Add Entry</button>
 </form>
