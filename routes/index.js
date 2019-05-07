@@ -9,12 +9,9 @@ const uploadCloud = require ("./cloudinary");
 
 var months = [
   "January", "February", "March", "April",
-   "May", "June", "July", "August", "September",
-    "October", "November", "December"
+  "May", "June", "July", "August", "September",
+  "October", "November", "December"
 ]
-// var d = post.date.getDate();
-// var m = monthNames[post.date.getMonth()];
-// var y = post.date.getFullYear();
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -29,7 +26,7 @@ router.get('/today', (req, res, next) => {
      next(err)
    })
  });
-
+ iuashfaifhaoisfasf FIXING COMMIT
  router.post('/allPosts', uploadCloud.single('pic'), (req, res, next) => {
    let pic = req.file.url;
    let question = req.body.question;
@@ -40,22 +37,6 @@ router.get('/today', (req, res, next) => {
    journal.create({pic, question, mood, song, author}).then(resFromDB=>{
      res.redirect('/dashboard')
    })
-
-  //  router.get('/dashboard', isLoggedIn, (req, res, next) => {
-  //   User.findById(req.user._id).populate('favorites')
-  //   .then(userInfo => {
-  //     journal.find({author:req.user._id}).then(journalLog=> {
-  //       console.log("the user info when at the dashboard ---------- ", userInfo);
-  //       data = { thoughts:journalLog}
-  //       console.log("the info in the data object ========= ", data)
-  //       res.redirect('/allPosts', data)
-  //     })
-  //   })
-  //   .catch(err => {
-  //     next(err);
-  //   }) 
-  //  });
-
     console.log(req.body,req.file, '&^%&^%*&&%^&^%')
  })
 
