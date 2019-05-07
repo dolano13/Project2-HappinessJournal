@@ -1,5 +1,5 @@
 <h1> {{date}}</h1>
-<form action="/allPosts" method="post">
+<form action="/allPosts" method="post" enctype="multipart/form-data">
   {{!-- <label for="">Date:</label>
   <input type="Date" name="date">
   <br> --}}
@@ -11,7 +11,7 @@
   <br>
   <input type="text" name="SOTD">
   <br>
-  <label for="">On a scale of 1 being :( and 5 being :), how do you feel?</label>
+  <label for="">On a scale of 1 to 5, how do you feel today?</label>
   <br>
   <input type="number" name="mood">
   <br>

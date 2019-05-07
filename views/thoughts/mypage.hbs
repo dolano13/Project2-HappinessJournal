@@ -1,4 +1,11 @@
-<h1> calendar/faves</h1>
+<h1> me</h1>
+
+<div class="faves"> 
 {{#each userFaves}}
-  <img src="{{this.pic}}">
+   <img src="{{this.pic}}">
+   <button>Delete</button>
 {{/each}}
+<div class="journalEntries">
+   <a href="/allPosts">{{thoughts.0.date}}</a>
+</div>
+</div>

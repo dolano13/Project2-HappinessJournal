@@ -1,26 +1,37 @@
 const express = require('express');
 const router  = express.Router();
-const todaysEntry = require('../models/journalEntry');
+const journal = require('../models/journalEntry');
 const takeABreather = require('../models/stuff');
 const dashboard = require('../models/stuff')
 const User = require("../models/user");
+const uploadCloud = require ("./cloudinary");
 
 /* GET home page */
 router.get('/', (req, res, next) => {
   res.render('index');
 });
 router.get('/today', (req, res, next) => {
-  todaysEntry.find().then(entry =>{
+  journal.find().then(entry =>{
     console.log(entry)
     res.render('thoughts/journal',{entry})
   })
    .catch(err =>{
-     console.log(err)
+     next(err)
    })
  });
 
- router.post('/allPosts', (req, res, next) => {
-   req.user._id
+ router.post('/allPosts', uploadCloud.single('pic'), (req, res, next) => {
+   let pic = req.file.url;
+   let Question = req.body.Question;
+   let mood = req.body.bood;
+   let song= req.body.SOTD;
+   let author = req.user._id
+
+   journal.create({pic, Question, mood, song, author}).then(resFromDB=>{
+     res.redirect('/dashboard')
+   })
+
+    console.log(req.body,req.file, '&^%&^%*&&%^&^%')
  })
 
  router.get('/chillout', (req, res, next) => {
@@ -29,11 +40,11 @@ router.get('/today', (req, res, next) => {
     res.render('thoughts/stuff',{stuff})
   })
    .catch(err =>{
-     console.log(err)
+    next(err)
    })
  });
-  router.post("/chillout/:id", (req, res, next) => {
-    if(!req.user) { res.redirect('/login')}
+  router.post("/chillout/:id", isLoggedIn, (req, res, next) => {
+    //if(!req.user) { res.redirect('/login')}
     dashboard.findOne({ _id: req.params.id })
       .then(stuff => {
         console.log("the stuff to add", stuff);
@@ -53,16 +64,18 @@ router.get('/today', (req, res, next) => {
    });
 
 
-   router.get('/dashboard', (req, res, next) => {
-     if(!req.user) { res.redirect('/login')}
+   router.get('/dashboard', isLoggedIn, (req, res, next) => {
     User.findById(req.user._id).populate('favorites')
     .then(userInfo => {
-      console.log("the user info when at the dashboard ---------- ", userInfo);
-      data = {
-        userFaves: userInfo.favorites
-      }
-      console.log("the info in the data object ========= ", data)
-      res.render('thoughts/mypage', data)
+      journal.find({author:req.user._id}).then(journalLog=> {
+        console.log("the user info when at the dashboard ---------- ", userInfo);
+        data = {
+          userFaves: userInfo.favorites,
+          thoughts:journalLog
+        }
+        console.log("the info in the data object ========= ", data)
+        res.render('thoughts/mypage', data)
+      })
     })
     .catch(err => {
       next(err);
@@ -70,6 +83,13 @@ router.get('/today', (req, res, next) => {
    });
 
 
+   function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+      return next()
+    } else {
+      res.redirect('/login')
+    }
+   }
 
 
 module.exports = router;
