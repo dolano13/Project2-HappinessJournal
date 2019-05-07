@@ -3,9 +3,10 @@
 <div class="faves"> 
 {{#each userFaves}}
    <img src="{{this.pic}}">
-   <button>Delete</button>
+   <form action="/dashboard/delete/{{this._id}}" method="POST"> <button type="submit">Delete</button> </form>
+    <br>
 {{/each}}
 <div class="journalEntries">
-   <a href="/allPosts">{{thoughts.0.date}}</a>
+   <a href="/allPosts">{{theDate}}</a>
 </div>
 </div>
