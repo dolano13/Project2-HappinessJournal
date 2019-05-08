@@ -26,7 +26,18 @@ router.get('/today', (req, res, next) => {
      next(err)
    })
  });
- iuashfaifhaoisfasf FIXING COMMIT
+
+// router.get
+// let pic = happinessJournal.thoughts.pic;
+// let question= happinessJournal.thoughts.question;
+// let song = happinessJournal.thoughts.song;
+// let mood = happinessJournal.thoughts.mood;
+
+//  router.get('/allPosts', (req, res, next) => {
+//   res.render('thoughts/allPosts');
+//  });
+
+ 
  router.post('/allPosts', uploadCloud.single('pic'), (req, res, next) => {
    let pic = req.file.url;
    let question = req.body.question;
@@ -40,9 +51,31 @@ router.get('/today', (req, res, next) => {
     console.log(req.body,req.file, '&^%&^%*&&%^&^%')
  })
 
- router.get('/allPosts', (req, res, next) => {
-  res.render('thoughts/allPosts');
+
+ router.get('/allPosts', isLoggedIn, (req, res, next) => {
+   if(!req.user) { res.redirect('/login') }
+   journal.find({'author': req.user._id})
+    .then(journalLog => {
+      var newLogArray = [];
+      journalLog.forEach(oneLog => {
+        var theDay = oneLog.date.getDate()
+        var theMonth = months[oneLog.date.getMonth()];
+        var theYear = oneLog.date.getFullYear();
+        oneLog.theDate = `${theMonth} ${theDay}, ${theYear}`
+        console.log("the one log info --------------- >", oneLog);
+        newLogArray.push(oneLog)
+      })
+
+      console.log("the array ========== ", newLogArray);
+      console.log("the journal ------------ ", journalLog);
+     res.render('thoughts/allPosts', {thoughts: newLogArray});
+    })
+    .catch(err => {
+      next(err);
+    });
 });
+
+
  router.get('/chillout', (req, res, next) => {
   takeABreather.find().then(stuff =>{
     console.log(stuff)
@@ -76,14 +109,17 @@ router.get('/today', (req, res, next) => {
    router.get('/dashboard', isLoggedIn, (req, res, next) => {
     User.findById(req.user._id).populate('favorites')
     .then(userInfo => {
-      journal.find({author:req.user._id}).then(journalLog=> {
+      journal.find({author:req.user._id}).populate("author")
+      .then(journalLog=> {
         console.log("the user info when at the dashboard ---------- ", userInfo);
-        var theDay = journalLog[0].date.getDate()
-        var theMonth = months[journalLog[0].date.getMonth()];
-        var theYear = journalLog[0].date.getFullYear();
+        console.log("the Journal Info ++++++++++++++++++ ", journalLog);
+        var theDay = journalLog[journalLog.length-1].date.getDate()
+        var theMonth = months[journalLog[journalLog.length-1].date.getMonth()];
+        var theYear = journalLog[journalLog.length-1].date.getFullYear();
+
         data = {
           userFaves: userInfo.favorites,
-          thoughts:journalLog,
+          thoughts: journalLog,
           theDate: `${theMonth} ${theDay}, ${theYear}`
         }
         // console.log("the info in the data object ========= ", data, "================ ", theMonth, theDay, theYear)
@@ -109,8 +145,6 @@ router.get('/today', (req, res, next) => {
         next(err)
       })
     });
-  // });
-
 
    function isLoggedIn(req, res, next){
     if(req.isAuthenticated()){

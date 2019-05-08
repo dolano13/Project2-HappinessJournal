@@ -1,6 +1,12 @@
 
+<div class='dash'>
 {{#each stuff}}
-<img src={{pic}}>
-<br>
-<form action="/chillout/{{id}}" method="POST"><button>Add to Favorites</button></form>
+{{!-- <div class="masonry-layout">
+  <div class="masonry-layout__panel">
+    <div class="masonry-layout__panel-content"> --}}
+<div class="dash-item">
+<img src={{pic}} width='350px' style='border:3px solid white;'>
+<form action="/chillout/{{id}}" method="POST"><button>♥</button></form>
+</div>
 {{/each}}
+</div>

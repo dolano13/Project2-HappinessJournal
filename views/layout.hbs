@@ -11,14 +11,15 @@
   <nav>
     <a href="/">Home</a>
     {{#if currentUser}}
-      <a href="/today">Today</a>
-      <a href="/dashboard">My Page</a>
-      <a href="/chillout">Inspiration</a>
+      <a href="/dashboard">{{currentUser.username}}</a>
+      <a href="/today">Write it Out</a>
+      <a href="/allPosts">Journal Log</a>
+      <a href="/chillout">Just Vibe</a>
       <a href="/logout">Logout</a>
     {{else}}
       {{!-- <a href="/login">Login</a> --}}
       <a href="/signup">Sign Up</a>
-      <a href="/chillout">Inspiration</a>
+      <a href="/chillout">~~~</a>
     {{/if}}
   </nav>
 

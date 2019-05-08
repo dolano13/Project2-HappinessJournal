@@ -1,3 +1,11 @@
-<h1>{{thoughts.0.date}}</h1>
-{{thoughts}}
-{{!-- <img src="{{ thoughts.0.pic}}"/>  --}}
+<h1> Take a Look </h1>
+
+{{#each thoughts}}
+<div class='journal-entry'>
+  <h4>{{this.theDate}}</h4>
+  <img src="{{this.pic}}" alt="" width="350px">
+  <p>{{this.question}}</p>
+  <p>Song of the day: {{this.song}}</p>
+  <p> Overall mood: {{this.mood}}</p>
+</div>
+{{/each}}

@@ -1,8 +1,17 @@
 body {
+  background-color: #c7ebf7;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: plum; }
+
+div.dash {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center; }
 
 /*# sourceMappingURL=style.css.map */
