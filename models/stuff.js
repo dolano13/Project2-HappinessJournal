@@ -10,3 +10,4 @@ const stuffSchema = new Schema({
 const stuff = mongoose.model("stuff", stuffSchema);
 
 module.exports = stuff;
+

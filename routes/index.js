@@ -113,14 +113,19 @@ router.get('/today', (req, res, next) => {
       .then(journalLog=> {
         console.log("the user info when at the dashboard ---------- ", userInfo);
         console.log("the Journal Info ++++++++++++++++++ ", journalLog);
-        var theDay = journalLog[journalLog.length-1].date.getDate()
-        var theMonth = months[journalLog[journalLog.length-1].date.getMonth()];
-        var theYear = journalLog[journalLog.length-1].date.getFullYear();
+        if(journalLog.length > 0) {
+          var theDay = journalLog[journalLog.length-1].date.getDate()
+          var theMonth = months[journalLog[journalLog.length-1].date.getMonth()];
+          var theYear = journalLog[journalLog.length-1].date.getFullYear();
+        }
 
         data = {
           userFaves: userInfo.favorites,
           thoughts: journalLog,
           theDate: `${theMonth} ${theDay}, ${theYear}`
+        }
+        if(theDay === undefined) {
+          data.theDate = false
         }
         // console.log("the info in the data object ========= ", data, "================ ", theMonth, theDay, theYear)
         res.render('thoughts/mypage', data)

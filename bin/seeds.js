@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const takeABreather = require('../models/stuff');
 
 const dbName = 'happinessJournal';
-mongoose.connect(`mongodb://localhost/${dbName}`);
+mongoose.connect(`mongodb+srv://dolano13:36938614@cluster0-qegeg.mongodb.net/test?retryWrites=true'${dbName}`);
 
 const stuff= [
   {pic: '/images/30.jpg',},

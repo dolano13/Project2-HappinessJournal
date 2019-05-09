@@ -17,7 +17,8 @@ const User = require('./models/user');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/happinessJournal', {useNewUrlParser: true})
+  //.connect('mongodb://localhost/happinessJournal', {useNewUrlParser: true})
+  .connect('mongodb+srv://dolano13:36938614@cluster0-qegeg.mongodb.net/test?retryWrites=true',{useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
