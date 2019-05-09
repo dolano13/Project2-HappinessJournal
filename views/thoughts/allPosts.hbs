@@ -1,11 +1,37 @@
 <h1> Take a Look </h1>
+<style>
+       #blog-landing{
+        margin-top:81px;
+        position:relative;
+        max-width:100%;
+        width:auto;
+      }
+      img{
+        width:100%;
+        max-width:100%;
+        height:auto;
+      }
+      .whitepanel{
+        position:absolute;
+        background:whitesmoke;
+        box-shadow:0px 1px 2px;
+        padding:10px;
+      }
+      .whitepanel:hover{
+        box-shadow:1px 1px 10px;
+        margin-top: -5px;
+        transtion: all 0.3s ease-in-out;
+      }
+    </style>
 
-{{#each thoughts}}
-<div class='journal-entry'>
-  <h4>{{this.theDate}}</h4>
-  <img src="{{this.pic}}" alt="" width="350px">
-  <p>{{this.question}}</p>
-  <p>Song of the day: {{this.song}}</p>
-  <p> Overall mood: {{this.mood}}</p>
-</div>
-{{/each}}
+  <div class='container-marketing'>
+    <section id="blog-landing">
+  {{#each thoughts}}
+        <article class="whitepanel">
+          <img src="{{this.pic}}" alt="">
+          <h3>{{this.theDate}}</h3>
+          <p class="journal-answers">{{this.question}}<br><br>Song of the day: {{this.song}}<br><br>Feeling: {{this.mood}}</p>
+        </article>
+  {{/each}}
+      </section>
+  </div>

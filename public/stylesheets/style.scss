@@ -7,13 +7,13 @@ body {
   margin: 0 auto;
   padding:2vw 2vh;
 }
-p{
+p.journal-answers{
     display: flex;
     justify-content: center;
-    text-align: -webkit-center;
+    text-align: left;
     margin: 5;
-    padding: 5vw;
-    padding-top: 0;
+    // padding: 5vw;
+    // padding-top: 0;
     font-size: smaller;
 }
 h1{
@@ -96,8 +96,12 @@ div.user-img{
   width:20vw;
   padding:0 auto;
 }
+body > div > div> form{
+display: flex;
+justify-content: flex-end;
+margin-top: -25px;
 
-
+}
 //desktop CSS
 // @media only screen and (min-width: 600px) {
 //   body {

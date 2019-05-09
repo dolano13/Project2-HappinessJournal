@@ -6,7 +6,7 @@ const thoughtsSchema = new Schema({
   date: {type: Date,default: Date.now} ,
   question:{type: String},
   song: String,
-  mood:{ type: String},
+  mood:{type: String},
   pic: String,
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }

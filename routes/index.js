@@ -41,7 +41,7 @@ router.get('/today', (req, res, next) => {
  router.post('/allPosts', uploadCloud.single('pic'), (req, res, next) => {
    let pic = req.file.url;
    let question = req.body.question;
-   let mood = req.body.bood;
+   let mood = req.body.mood;
    let song= req.body.SOTD;
    let author = req.user._id
 
