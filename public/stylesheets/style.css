@@ -1,10 +1,41 @@
 body {
-  background-color: #c7ebf7;
+  background-color: #e9e7e7;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font-family: 'Nixie One', cursive;
+  margin: 0 auto;
+  padding: 2vw 2vh; }
+
+p {
+  display: flex;
+  justify-content: center;
+  text-align: -webkit-center;
+  margin: 5;
+  padding: 5vw;
+  padding-top: 0;
+  font-size: smaller; }
+
+h1 {
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  font-size: xx-large;
+  color: #7EB6FF; }
+
+nav {
+  display: flex;
+  flex-direction: center;
+  justify-content: right;
+  align-items: end;
+  margin: none; }
 
 a {
-  color: plum; }
+  color: #7EB6FF;
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  padding-right: 2vw;
+  align-items: center;
+  align-content: center; }
 
 div.dash {
   display: flex;
@@ -13,5 +44,41 @@ div.dash {
   justify-content: space-evenly;
   align-items: center;
   align-content: center; }
+
+div.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+body > div > div > img {
+  width: 20vw; }
+
+body > div > form > div:nth-child(3) > button {
+  text-align: -webkit-center;
+  width: 50vw;
+  background-color: #7EB6FF;
+  border-radius: 1px;
+  border: none;
+  color: white;
+  font-family: 'Nixie One', cursive;
+  padding: 3px;
+  font-weight: bolder;
+  font-size: medium; }
+
+body > div > form > div:nth-child(1) > input {
+  width: 49.3vw;
+  color: lightgray;
+  font-size: smaller;
+  font-family: 'Josefin Slab', serif; }
+
+body > div > form > div:nth-child(2) > input {
+  width: 49.3vw;
+  color: lightgray;
+  font-size: smaller;
+  font-family: 'Josefin Slab', serif; }
+
+div.user-img {
+  width: 20vw;
+  padding: 0 auto; }
 
 /*# sourceMappingURL=style.css.map */

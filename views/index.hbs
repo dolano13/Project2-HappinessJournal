@@ -1,23 +1,26 @@
 <h1>{{title}}</h1>
-<p>It's time to {{title}}, log-in to access your online journal.</p>
-
-<form action="/login" method="POST">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" name="username">
+<p>Habits are described as “small changes that people introduce into their routines that unintentionally carry over into other aspects of their lives.” This site will help you do just that, while simultaneously helping reduce feelings of stress or anxiety. This is your little happiness helper, use it daily, or simply when you feel overwhelmed. It doesn't matter, all that does is that you remind yourself to {{title}}.</p>
+     
+<div class='login'>
+  <div class="user-img">
+    <img src="images/output-onlinepngtools.png">
   </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" name="password">
+  <form action="/login" method="POST">
+  <div class="form-group">
+    <input type="text" name="username" placeholder="Username">
+  </div>
+  <div class="form-group">
+    <input type="password" name="password" placeholder="Password">
   </div>
   {{#if message}}
-    <div class="error-message">{{ message }}</div>
+  <div class="error-message">{{ message }}</div>
   {{/if}}
   <div>
-    <input type="submit" value="Log In">
+    <button type="submit" value="Log In">Log In</button>
   </div>
-    <p class="account-message">
+  <p class="account-message">
     Don't have an account?
     <a href="/signup">Sign Up</a>
   </p>
-</form>
+  </form>
+</div>
