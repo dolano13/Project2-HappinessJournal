@@ -17,6 +17,8 @@ var months = [
 router.get('/', (req, res, next) => {
   res.render('index');
 });
+
+/*journal entry*/
 router.get('/today', (req, res, next) => {
   journal.find().then(entry =>{
     console.log(entry)
@@ -27,17 +29,7 @@ router.get('/today', (req, res, next) => {
    })
  });
 
-// router.get
-// let pic = happinessJournal.thoughts.pic;
-// let question= happinessJournal.thoughts.question;
-// let song = happinessJournal.thoughts.song;
-// let mood = happinessJournal.thoughts.mood;
-
-//  router.get('/allPosts', (req, res, next) => {
-//   res.render('thoughts/allPosts');
-//  });
-
- 
+ /*actual journal log*/
  router.post('/allPosts', uploadCloud.single('pic'), (req, res, next) => {
    let pic = req.file.url;
    let question = req.body.question;
@@ -68,14 +60,14 @@ router.get('/today', (req, res, next) => {
 
       console.log("the array ========== ", newLogArray);
       console.log("the journal ------------ ", journalLog);
-     res.render('thoughts/allPosts', {thoughts: newLogArray});
+     res.render('thoughts/allPosts', {thoughts: newLogArray.reverse()});
     })
     .catch(err => {
       next(err);
     });
 });
 
-
+/*just vibe page, faves and logs to dash*/
  router.get('/chillout', (req, res, next) => {
   takeABreather.find().then(stuff =>{
     console.log(stuff)
@@ -85,6 +77,7 @@ router.get('/today', (req, res, next) => {
     next(err)
    })
  });
+
   router.post("/chillout/:id", isLoggedIn, (req, res, next) => {
     //if(!req.user) { res.redirect('/login')}
     dashboard.findOne({ _id: req.params.id })
@@ -94,7 +87,7 @@ router.get('/today', (req, res, next) => {
         req.user.save()
         .then(updatedUser => {
           console.log("updated user fav's -------- ", updatedUser)
-          res.redirect("/dashboard")
+          res.redirect("/chillout")
         })
         .catch(err => {
           next(err);
@@ -105,7 +98,7 @@ router.get('/today', (req, res, next) => {
       });
    });
 
-
+   
    router.get('/dashboard', isLoggedIn, (req, res, next) => {
     User.findById(req.user._id).populate('favorites')
     .then(userInfo => {
@@ -136,6 +129,7 @@ router.get('/today', (req, res, next) => {
     }) 
    });
  
+   /*delete*/
    router.post("/dashboard/delete/:id", isLoggedIn, (req, res, next) => {
     console.log("Deleted a fave");
     // dashboard.findOneAndDelete({ _id: req.params.id }).then(userFaves => {
