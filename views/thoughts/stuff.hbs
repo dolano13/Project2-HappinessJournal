@@ -1,54 +1,13 @@
-<h1>Tips & Token Happiness</h1>
-<style>
-  #stuff-landing{
-    margin-top:81px;
-        position:relative;
-        max-width:100%;
-        width:auto;
-  }
-   img{
-      width:100%;
-      max-width:100%;
-      height:auto;
-   }
-   .stuffpanel{
-      position:absolute;
-      background:papayawhip;
-      box-shadow:0px 1px 2px;
-      padding:10px;
-   }
-  button{
-    background:none;
-     border:none;
-  }
-
-</style>
+<h1 id="big">Tips & Token Happiness</h1>
 
 <div class="allthestuff">
   <section id="stuff-landing">
         {{#each stuff}}
     <article class="stuffpanel">
-      {{!-- <ul class="grid effect-4" id="grid">
-        <li> --}}
           <img src='{{pic}}'>
-          <form action="/chillout/{{id}}" id="love" method="POST"></form>
-          <button id="love">♥</button>
-        {{!-- </li> --}}
-      {{!-- </ul> --}}
+          <form action="/chillout/{{this._id}}"  method="POST"> <button class='journalbtn' type="submit">♥</button></form>
     </article>
         {{/each}}
   </section>
 </div>
 
-
-
-
-{{!-- <div class='allthestuff'>
-{{#each stuff}}
-
-<div class="dash-item">
-<img src={{pic}} width='350px' style='border:3px solid white;'>
-<form action="/chillout/{{id}}" method="POST"><button>♥</button></form>
-</div>
-{{/each}}
-</div> --}}

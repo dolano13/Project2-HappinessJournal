@@ -1,41 +1,9 @@
-<h1> {{currentUser.username}}</h1>
-<style>
-   #dashboard-landing{
-      margin-top:81px;
-      position:relative;
-      max-width:100%;
-      width:auto;
-   }
-   img{
-      width:100%;
-      max-width:100%;
-      height:auto;
-   }
-   .dashpanel{
-      position:absolute;
-      background:papayawhip;
-      box-shadow:0px 1px 2px;
-      padding:10px;
-   }
-     .dashpanel:hover{
-        box-shadow:1px 1px 10px;
-        margin-top: -5px;
-        transtion: all 0.3s ease-in-out forwards;
-      }
-      a{
-         font-weight:700;
-      }
-      button{
-         background:none;
-         border:none;
-      }
-</style>
-
+<h1 id="big"> {{currentUser.username}}</h1>
 
 <div class="faves">
    <section id="dashboard-landing">
       <article class="dashpanel">
-         <h5>Last journal entry:</h5>
+         <h4>Last journal entry:</h4>
       {{#if theDate}}
          <a href="/allPosts">{{theDate}}</a>
       {{/if}}
@@ -43,23 +11,9 @@
 {{#each userFaves}}
       <article class="dashpanel">
          <img src="{{this.pic}}" alt="">
-         <form action="/dashboard/delete/{{this._id}}" id="delete" method="post"> </form>
-         <button form="delete" type="submit">delete</button>
+         <form action="/dashboard/delete/{{this._id}}" method="post"> <button type="submit">🗑️</button> </form>
       </article>
 {{/each}}
    </section>
 </div>
 
-{{!-- <div class="faves"> 
-{{#each userFaves}}
-   <img src="{{this.pic}}" width="350px">
-   <form action="/dashboard/delete/{{this._id}}" method="POST"> <button type="submit">🗑</button> </form>
-    <br>
-{{/each}}
-<div class="journalEntries">
-   <h5>Last day you journaled:</h5>
-   {{#if theDate}}
-   <a href="/allPosts">{{theDate}}</a>
-   {{/if}}
-</div>
-</div> --}}

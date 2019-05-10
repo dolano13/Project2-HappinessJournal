@@ -1,16 +1,20 @@
+@media only screen and (min-width: 600px) {
+  h1#big {
+    font-size: -webkit-xxx-large; }
+  p#description {
+    padding: 0 10vw;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: -60px;
+    text-align: center;
+    font-size: larger; } }
+
 body {
   background-color: #e9e7e7;
   padding: 50px;
   font-family: 'Nixie One', cursive;
   margin: 0 auto;
   padding: 2vw 2vh; }
-
-p.journal-answers {
-  display: flex;
-  justify-content: center;
-  text-align: left;
-  margin: 5;
-  font-size: smaller; }
 
 h1 {
   margin-top: 10vh;
@@ -35,53 +39,146 @@ a {
   align-items: center;
   align-content: center; }
 
-div.dash {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  align-content: center; }
+#dashboard-landing {
+  margin-top: 50px;
+  position: relative;
+  max-width: 100%;
+  width: auto; }
 
-div.login {
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto; }
+
+.dashpanel {
+  position: absolute;
+  background: papayawhip;
+  box-shadow: 0px 1px 2px;
+  padding: 10px; }
+
+.dashpanel:hover {
+  box-shadow: 1px 1px 10px;
+  margin-top: -5px;
+  transition: all 0.3s ease-in-out forwards; }
+
+a {
+  font-weight: 700;
+  font-size: larger; }
+
+button {
+  background: none;
+  border: none;
+  float: right;
+  font-size: larger; }
+
+#blog-landing {
+  margin-top: 50px;
+  position: relative;
+  max-width: 100%;
+  width: auto; }
+
+.whitepanel {
+  position: absolute;
+  background: papayawhip;
+  box-shadow: 0px 1px 2px;
+  padding: 10px; }
+
+.whitepanel:hover {
+  box-shadow: 1px 1px 10px;
+  margin-top: -5px;
+  transition: all 0.3s ease-in-out forwards; }
+
+h3 {
+  color: #7EB6FF; }
+
+#stuff-landing {
+  margin-top: 50px;
+  position: relative;
+  max-width: 100%;
+  width: auto; }
+
+.stuffpanel {
+  position: absolute;
+  background: papayawhip;
+  box-shadow: 0px 1px 2px;
+  padding: 10px; }
+
+#text-landing {
+  margin-top: 45px;
+  position: relative;
+  max-width: 100%;
+  width: auto;
+  left: 15vw;
+  right: 10vw;
+  margin-bottom: -25px; }
+
+.textpanel {
+  position: absolute;
+  background: papayawhip;
+  box-shadow: 0px 1px 2px;
+  padding: 10px; }
+
+.maintext {
+  width: 65vw;
+  max-width: 100%;
+  height: 50vh; }
+
+.quicktxt {
+  width: 32.5vw;
+  max-width: 100%;
+  height: auto; }
+
+.formpanel {
   display: flex;
   flex-direction: column;
   align-items: center; }
 
-body > div > div > img {
-  width: 20vw; }
+button.journalbtn:hover {
+  color: #7EB6FF; }
 
-body > div > form > div:nth-child(3) > button {
-  text-align: -webkit-center;
-  width: 50vw;
-  background-color: #7EB6FF;
-  border-radius: 1px;
-  border: none;
-  color: white;
-  font-family: 'Nixie One', cursive;
-  padding: 3px;
-  font-weight: bolder;
-  font-size: medium; }
+.account {
+  margin-top: 81px;
+  position: relative;
+  max-width: 80vw;
+  width: auto;
+  left: 10vw; }
 
-body > div > form > div:nth-child(1) > input {
-  width: 49.3vw;
-  color: lightgray;
-  font-size: smaller;
-  font-family: 'Josefin Slab', serif; }
-
-body > div > form > div:nth-child(2) > input {
-  width: 49.3vw;
-  color: lightgray;
-  font-size: smaller;
-  font-family: 'Josefin Slab', serif; }
-
-div.user-img {
-  width: 20vw;
-  padding: 0 auto; }
-
-body > div > div > form {
+.registerpanel {
+  position: relative;
+  background: papayawhip;
+  box-shadow: 0px 1px 2px;
+  padding: 10px;
   display: flex;
-  justify-content: flex-end;
-  margin-top: -25px; }
+  flex-direction: column;
+  align-items: center; }
+
+.registerpanel:hover {
+  box-shadow: 1px 1px 10px;
+  margin-top: -5px;
+  transition: all 0.3s ease-in-out forwards; }
+
+a.user-a {
+  color: #7EB6FF;
+  font-size: smaller; }
+
+#username {
+  width: 40vw;
+  height: 5vh; }
+
+#password {
+  width: 40vw;
+  height: 5vh; }
+
+label.userlabel {
+  font-size: large; }
+
+button.userbtn {
+  font-size: x-large;
+  color: #7EB6FF; }
+
+img.userlogo {
+  width: 20vw;
+  max-width: 100%;
+  height: auto; }
 
 /*# sourceMappingURL=style.css.map */

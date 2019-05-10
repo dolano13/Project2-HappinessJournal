@@ -1,21 +1,23 @@
-<form action="/login" method="POST">
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" value="danolan" name="username">
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" value="danolan" name="password">
-  </div>
-  {{#if message}}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-  <div>
-    <input type="submit" value="Log In">
-  </div>
-    </div>
-    <p class="account-message">
-    Don't have an account?
-    <a href="/signup">Sign Up</a>
-  </p>
-</form>
+<h1 id='big'> Log In </h1>
+
+<div class='register'>
+  <section class='account'>
+    <form class='registerpanel' action="/login" method="POST">
+      <img class='userlogo' src="images/output-onlinepngtools (2).png">
+      <label class='userlabel' for="username">Username</label>
+      <input id="username" type="text" name="username">
+      <label class='userlabel' for="password">Password</label>
+      <input id="password" type="password" name="password">
+     
+      {{#if message}}
+        <div class="error-message">{{ message }}</div>
+      {{/if}}
+      <br>
+      <button class='userbtn'>Log In</button>
+        <p class="account-message">
+        Don't have an account?
+        <a class='user-a' href="/signup">Sign Up</a>
+      </p>
+    </form>
+  </section>
+</div>

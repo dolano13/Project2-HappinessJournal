@@ -1,18 +1,18 @@
 
-<form action="/allPosts" method="post" enctype="multipart/form-data">
-  <label for="">Write it Out</label>
-  <br>
-  <input type="text" name="question" style="width:300px; height:100px;" >
-  <br>
-  <label for="">Song of the Day:</label>
-  <br>
-  <input type="text" name="SOTD" style="width:300px;">
-  <br>
-  <label for="">How do you feel today?</label>
-  <br>
-  <input type="text" name="mood">
-  <br>
-  <input type="file" name="pic">
-  <br>
-  <button type="submit">Add Entry</button>
-</form>
+<div class= "text">
+  <section id="text-landing">
+    <article class="textpanel">
+      <form class='formpanel' action="/allPosts" method="post" enctype="multipart/form-data">
+        <label for="">Write it Out</label>
+        <textarea class='maintext' type="text" name="question" ></textarea>
+        <label for="">Song of the Day:</label>
+        <input class='quicktxt' type="text" name="SOTD">
+        <label for="">How do you feel today?</label>
+        <input class='quicktxt' type="text" name="mood">
+        <input type="file" name="pic">
+        <br>
+        <button class='userbtn' type="submit">Add Entry</button>
+      </form>
+    </article>
+  </section>
+</div>
