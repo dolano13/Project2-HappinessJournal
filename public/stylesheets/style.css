@@ -1,4 +1,6 @@
 @media only screen and (min-width: 600px) {
+  button {
+    font-family: 'Nixie One', cursive; }
   h1#big {
     font-size: -webkit-xxx-large; }
   p#description {
@@ -53,7 +55,9 @@ img {
 .dashpanel {
   position: absolute;
   background: papayawhip;
-  box-shadow: 0px 1px 2px; }
+  box-shadow: 0px 1px 2px;
+  padding: 10px;
+  margin: 10px; }
 
 .dashpanel:hover {
   box-shadow: 1px 1px 10px;
