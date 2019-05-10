@@ -78,6 +78,10 @@ router.get('/today', (req, res, next) => {
    })
  });
 
+//  router.get('/x', (req, res, next)=>{
+//    res.render('thoughts/x')
+//  })
+
   router.post("/chillout/:id", isLoggedIn, (req, res, next) => {
     //if(!req.user) { res.redirect('/login')}
     dashboard.findOne({ _id: req.params.id })
